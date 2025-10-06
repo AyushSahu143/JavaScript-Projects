@@ -1,0 +1,132 @@
+html {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+nav {
+  width: 100%;
+  background: #141414;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00ffcc;
+}
+
+#wrapper {
+  margin-top: 80px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 450px;
+  padding: 30px;
+  background: #333;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+h1 {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 26px;
+}
+
+p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+#guess {
+  font-size: 22px;
+  margin-top: 20px;
+  display: block;
+  color: #f1f1f1;
+}
+
+#guessField {
+  color: #000;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 15px;
+  border: 3px solid #555;
+  border-radius: 8px;
+  text-align: center;
+  outline: none;
+}
+
+#guessField:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 8px #00ffcc;
+}
+
+#subt {
+  background: #00ffcc;
+  color: #000;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#subt:hover {
+  background: #00e6b3;
+  transform: translateY(-2px);
+}
+
+.guesses, .lastResult {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #444;
+  font-weight: bold;
+}
+
+.lowOrHi h2 {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #ffcc00;
+}
+
+.button {
+  margin-top: 25px;
+  background: #ff4747;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #ff1c1c;
+}
