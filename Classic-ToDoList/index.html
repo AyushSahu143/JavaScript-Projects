@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush's To-Do App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div class="main">
+    <h2>Ayush's To-Do List</h2>
+    <div class="filters">
+        <button id="filter-all" class="fltr-btns">All</button>
+        <button id="filter-pending" class="fltr-btns">Pending</button>
+        <button id="filter-completed" class="fltr-btns">Completed</button>
+    </div>
+    
+    <input type="text" id="task-input" placeholder="Add a new task...">
+    <button type="submit" id="add-newTask" class="othrs"><i class="fa-solid fa-plus"></i></button>
+   </div>
+   <ul class="taskList"></ul>   
+</body>
+<script src="app.js"></script>
+</html>
