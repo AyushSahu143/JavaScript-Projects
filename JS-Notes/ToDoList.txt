@@ -1,0 +1,49 @@
+----------This is the notes i added while making ToDo list and added new concepts i learnt----------
+refer to Classic-Todo List folder for context of these notes
+
+1. Using nested selectors in querySelector:
+.querySelector('.taskList li')
+→ Selects child elements inside a parent using CSS selectors, not JS rules.
+
+2. Attribute selectors:
+input[type='checkbox']
+→ Selects ONLY inputs whose type attribute is "checkbox".
+
+ 3. Why toggle() is used:
+element.classList.toggle('completed')
+→ Automatically adds OR removes a class
+→ Removes the need for a long if/else block.
+Equivalent manual method:
+if (checkBox.checked) add class
+else remove class
+
+4. Checkbox vs toggle:
+	•	.checked → tells you if checkbox is checked (true/false)
+	•	.toggle() → updates UI by flipping the class
+	•	Checkbox change triggers toggle → so UI stays in sync
+
+5. querySelector accepts ANY CSS selector:
+.tag
+#id
+.parent .child
+li.completed span
+input[type="checkbox"]
+→ JavaScript is just reading CSS selectors inside the string.
+
+6. Why we don’t use only .taskList:
+	•	.taskList = selects the UL
+	•	.taskList li = selects the tasks inside it
+→ You need LI for filtering, editing, deleting, completing.
+
+7. Using Enter to trigger click:
+taskInput.addEventListener("keydown", e => {
+   if (e.key === "Enter") addButton.click();
+});
+→ Triggers a button programmatically using .click().
+
+
+
+
+
+
+

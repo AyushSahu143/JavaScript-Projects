@@ -1,0 +1,53 @@
+
+
+const addBtn = document.getElementById("add-btn");
+
+function initialize() {
+    const descinput = document.getElementById('text');
+    const amtinput = document.getElementById('amount');
+
+    descinput.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter') {
+            e.preventDefault();
+            amtinput.focus();
+        }
+    });
+
+    amtinput.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter') {
+            e.preventDefault();
+            addBtn.click();
+        }
+    });
+}
+initialize();
+
+addBtn.addEventListener("click", addTransaction);
+
+function addTransaction() {
+    const description = document.getElementById('text').value.trim();
+    const amt = Number(document.getElementById('amount').value);
+
+    if (description === "" || amt === 0) return;        
+
+    let incomeVal = Number(document.getElementById('income').textContent.replace("₹", ""));
+    let expenseVal = Number(document.getElementById('expense').textContent.replace("₹", ""));
+
+    if (amt > 0) {
+        incomeVal += amt;
+        document.getElementById('income').textContent = `₹${incomeVal}`;
+    } else {
+        expenseVal += Math.abs(amt);
+        document.getElementById('expense').textContent = `₹${expenseVal}`;
+    }
+
+    const balance = incomeVal - expenseVal;
+    document.getElementById("balance").textContent = `₹${balance}`;
+
+    document.getElementById('text').value = "";
+    document.getElementById('amount').value = "";
+}
+
+
+
+
