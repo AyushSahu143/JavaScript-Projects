@@ -7,13 +7,11 @@ const feelsLike = document.getElementById("feels-like");
 const humidity = document.getElementById("humidity");
 const wind = document.getElementById("wind");
 const pressure = document.getElementById("pressure");
-const desc = document.getElementById('description');
-const wIcon = document.getElementById('wIcon');
-const errorCatch1 = document.getElementById('city-info');
-const errorCatch2 = document.getElementById('weather-main');
-const errorCatch3 = document.getElementById('weather-details');
-
-
+const desc = document.getElementById("description");
+const wIcon = document.getElementById("wIcon");
+const errorCatch1 = document.getElementById("city-info");
+const errorCatch2 = document.getElementById("weather-main");
+const errorCatch3 = document.getElementById("weather-details");
 
 //current Location
 navigator.geolocation.getCurrentPosition(
@@ -47,25 +45,28 @@ async function fetchAPI(lat, lon) {
 function updateUI(weatherData) {
   if (!weatherData?.weather || !weatherData?.main) {
     console.error("Invalid weather data received:", weatherData);
-    errorCatch1.textContent = '<div class="state-error"><span>City not Found!</span></div>'
-    locationIn.value = ``
-    errorCatch2.textContent = ``
-    errorCatch3.textContent = ``
+    errorCatch1.textContent =
+      '<div class="state-error"><span>City not Found!</span></div>';
+    locationIn.value = ``;
+    errorCatch2.textContent = ``;
+    errorCatch3.textContent = ``;
     return;
   }
 
   cityName.innerHTML = weatherData.name;
   time.textContent = getDayAndTime();
-  temp.textContent = `${Math.floor(weatherData.main.temp)}°`
-  desc.textContent = weatherData.weather[0].description
-  feelsLike.textContent = `feels like ${Math.floor(weatherData.main.feels_like)}°`
-  humidity.textContent = `${weatherData.main.humidity}%`
-  wind.textContent = `${weatherData.wind.speed} km/h`
-  pressure.textContent = `${weatherData.main.pressure} hPa`
-  countryName.textContent = weatherData.sys.country
-  const iconCode = weatherData.weather[0].icon
-  const iconURL = `https://openweathermap.org/img/wn/${iconCode}@2x.png`
-  wIcon.innerHTML = `<img src="${iconURL}" alt="weather icon" class="icon-img" />` 
+  temp.textContent = `${Math.floor(weatherData.main.temp)}°`;
+  desc.textContent = weatherData.weather[0].description;
+  feelsLike.textContent = `feels like ${Math.floor(
+    weatherData.main.feels_like
+  )}°`;
+  humidity.textContent = `${weatherData.main.humidity}%`;
+  wind.textContent = `${weatherData.wind.speed} km/h`;
+  pressure.textContent = `${weatherData.main.pressure} hPa`;
+  countryName.textContent = weatherData.sys.country;
+  const iconCode = weatherData.weather[0].icon;
+  const iconURL = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+  wIcon.innerHTML = `<img src="${iconURL}" alt="weather icon" class="icon-img" />`;
 }
 
 //Calculating date and time
@@ -87,22 +88,30 @@ function getDayAndTime() {
 }
 
 //Searching for City temp manually
-locationIn.addEventListener('keydown',(e) => {
-  if(e.key === 'Enter') searchManually()
-})
+locationIn.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    searchManually();
+    locationIn.blur();
+  }
+});
 
 //function called onclickig enter for searching city manually
 async function searchManually() {
   const city = locationIn.value.trim();
-  const apikey2 = "65f9e533b5c5bbb105e8ea39eb51d075"
+  const apikey2 = "65f9e533b5c5bbb105e8ea39eb51d075";
   try {
-   const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey2}&units=metric`)
-   const data = await res.json()
-   updateUI(data)
+    const res = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey2}&units=metric`
+    );
+    const data = await res.json();
+    updateUI(data);
   } catch (error) {
-    console.error(error.message)
-    document.body.insertAdjacentHTML("beforeend", '<div class="state-error"><span>City not Found!</span></div>');
-    locationIn.value = ``
-    setTimeout(()=>document.querySelector(".state-error")?.remove(), 2200);
+    console.error(error.message);
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      '<div class="state-error"><span>City not Found!</span></div>'
+    );
+    locationIn.value = ``;
+    setTimeout(() => document.querySelector(".state-error")?.remove(), 2200);
   }
 }
