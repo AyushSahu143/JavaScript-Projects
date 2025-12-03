@@ -44,6 +44,7 @@ addBtn.addEventListener("click", addTransaction);
 initialize();
 
 function addTransaction() {
+  amountIn.blur();
   const description = descinput.value.trim();
   console.log(description);
   const amt = Number(amountIn.value);
