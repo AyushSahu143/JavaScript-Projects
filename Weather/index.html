@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="globals.css">
+
+</head>
+<body>
+     <div class="app-wrapper">
+    <article class="weather-card">
+      <header class="weather-header">
+        <div class="city-info">
+          <span class="city-name" id="city-name"></span>
+          <span class="country" id="country-code">Rajasthan, IN</span>
+          <span class="date-time" id="local-time"></span>
+        </div>
+        <input type="text" id="currentLocation" name="currLoc" placeholder="Enter location">
+      </header>
+
+      <section class="weather-main">
+        <div class="temp-block">
+          <span class="temperature" id="temperature"></span>
+          <span class="description" id="description"></span>
+          <span class="feels-like" id="feels-like"></span>
+        </div>
+        <div class="weather-icon" id="weather-icon">
+          <!-- Replace with <img src="..."> when using real icons -->
+          <span id="wIcon"></span>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="weather-details">
+        <div class="detail-item">
+          <span class="detail-label">Humidity</span>
+          <span class="detail-value" id="humidity"></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Wind</span>
+          <span class="detail-value" id="wind"></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Pressure</span>
+          <span class="detail-value" id="pressure"></span>
+        </div>
+      </section>
+    </article>
+
+    <p class="footer-note">
+      Done by Ayush Sahu. <a href="https://github.com/AyushSahu143">GitHub</a>
+    </p>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

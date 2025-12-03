@@ -1,0 +1,218 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e5e7eb;
+    }
+
+    /* Limit layout to mobile-like width */
+    .app-wrapper {
+      width: 100%;
+      max-width: 420px;
+      padding: 16px;
+    }
+
+    /* ==== Weather Card ==== */
+    .weather-card {
+      background: linear-gradient(145deg, #1d4ed8, #3b82f6);
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .weather-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.14);
+      top: -80px;
+      right: -60px;
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .weather-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .city-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .city-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .country {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    .date-time {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .status-badge {
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.35);
+      backdrop-filter: blur(8px);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .weather-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .temp-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .temperature {
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .feels-like {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .weather-icon {
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    /* You can replace emoji with <img> from API later */
+    .weather-icon span {
+      display: inline-block;
+      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.7));
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(15, 23, 42, 0.25);
+      margin-bottom: 10px;
+    }
+
+    .weather-details {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.78rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .detail-item {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.25);
+      padding: 8px 10px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .detail-label {
+      opacity: 0.8;
+      font-size: 0.7rem;
+    }
+
+    .detail-value {
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .footer-note {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.7rem;
+      opacity: 0.65;
+    }
+
+    .footer-note a {
+      color: aliceblue;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    #currentLocation {
+      background-color: #ffffff;
+      color: #000000;
+      opacity: 60%;
+      border: 0;
+      border-radius: 4px;
+    }
+
+    .loader-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.weather-card-loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 0.4; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+
+.icon-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+    @media (min-width: 768px) {
+      body {
+        justify-content: center;
+      }
+    }
+ 

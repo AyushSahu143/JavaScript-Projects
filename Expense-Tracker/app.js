@@ -38,6 +38,7 @@ function initialize() {
   });
 }
 
+//Add transaction button
 addBtn.addEventListener("click", addTransaction);
 
 initialize();
@@ -106,10 +107,24 @@ function updateHistory() {
     li.innerHTML = `
         <span>${t.info}</span>
         <span>${t.amount > 0 ? "+" : "-"}₹${Math.abs(t.amount)}</span>
+        <button class="del-btn" data-id="${t.id}">✖</button>
     `;
+
+        li.querySelector(".del-btn").addEventListener("click", () => {
+      deleteTransaction(t.id);
+    });
+    
     history.appendChild(li);
   });
 }
+
+//Delete Transaction logic
+function deleteTransaction(id) {
+    transactions = transactions.filter(t => t.id !== id);
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+    updateUI();
+}
+
 
 //Pie CHART OR analysis
 function updateChart(totals) {
