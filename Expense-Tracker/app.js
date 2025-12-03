@@ -65,7 +65,6 @@ function addTransaction() {
 
   descinput.value = "";
   amountIn.value = "";
-  descinput.focus();
 }
 
 //update the UI logic
@@ -119,7 +118,7 @@ function updateHistory() {
   });
 }
 
-//Delete Transaction logic
+//Delete Transaction in case of by mistake!
 function deleteTransaction(id) {
     transactions = transactions.filter(t => t.id !== id);
     localStorage.setItem("transactions", JSON.stringify(transactions));
@@ -127,7 +126,7 @@ function deleteTransaction(id) {
 }
 
 
-//Pie CHART OR analysis
+//Pie CHART will give the better view
 function updateChart(totals) {
   const ctx = document.getElementById("expense-chart");
 
