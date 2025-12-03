@@ -9,6 +9,11 @@ const wind = document.getElementById("wind");
 const pressure = document.getElementById("pressure");
 const desc = document.getElementById('description');
 const wIcon = document.getElementById('wIcon');
+const errorCatch1 = document.getElementById('city-info');
+const errorCatch2 = document.getElementById('weather-main');
+const errorCatch3 = document.getElementById('weather-details');
+
+
 
 //current Location
 navigator.geolocation.getCurrentPosition(
@@ -40,8 +45,12 @@ async function fetchAPI(lat, lon) {
 }
 
 function updateUI(weatherData) {
-  if (!weatherData?.weather && !weatherData?.main) {
+  if (!weatherData?.weather || !weatherData?.main) {
     console.error("Invalid weather data received:", weatherData);
+    errorCatch1.textContent = '<div class="state-error"><span>City not Found!</span></div>'
+    locationIn.value = ``
+    errorCatch2.textContent = ``
+    errorCatch3.textContent = ``
     return;
   }
 
@@ -92,6 +101,8 @@ async function searchManually() {
    updateUI(data)
   } catch (error) {
     console.error(error.message)
+    document.body.insertAdjacentHTML("beforeend", '<div class="state-error"><span>City not Found!</span></div>');
+    locationIn.value = ``
+    setTimeout(()=>document.querySelector(".state-error")?.remove(), 2200);
   }
 }
-
